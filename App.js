@@ -3,26 +3,35 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainScreen from './screens/MainScreen.js';
 import AboutScreen from './screens/AboutScreen';
-import { StyleSheet, View } from 'react-native';
 
-const Stack = createNativeStackNavigator(); // Define Stack Navigator
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Main" component={MainScreen} />
-        <Stack.Screen name="About" component={AboutScreen} />
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#f0f0f0',
+          },
+          headerTintColor: '#333',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerBackTitleVisible: false,
+        }}
+      >
+        <Stack.Screen
+          name="Main"
+          component={MainScreen}
+          options={{ title: 'Room Cost Calculator' }} 
+        />
+        <Stack.Screen
+          name="About"
+          component={AboutScreen}
+          options={{ title: 'About Me' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#121212', // Dark background color
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
