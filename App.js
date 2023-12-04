@@ -24,12 +24,12 @@ export default function App() {
         <Stack.Screen
           name="Main"
           component={MainScreen}
-          options={{ title: 'Room Cost Calculator' }} 
+          options={{ title: 'Caseys Room Cost Calculator' }} 
         />
         <Stack.Screen
           name="About"
           component={AboutScreen}
-          options={{ title: 'About Me' }}
+          options={{ title: 'Caseys About Me Page' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

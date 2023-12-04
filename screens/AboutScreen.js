@@ -27,42 +27,49 @@ export default function AboutScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 1,
     backgroundColor: '#2a2a2a',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 16,
+    padding: 20,
   },
   card: {
     backgroundColor: '#1f1f1f',
-    elevation: 3,
-    borderRadius: 8,
-    padding: 16,
+    elevation: 4,
+    borderRadius: 10,
+    padding: 20,
     alignItems: 'center',
-    width: '80%',
+    width: '90%',
+    maxWidth: 500,
+    alignSelf: 'center',
   },
   avatar: {
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    marginBottom: 16, 
+    width: 180,
+    height: 180,
+    borderRadius: 90,
+    marginBottom: 20,
     borderColor: '#f0f0f0',
-    borderWidth: 2
+    borderWidth: 3,
   },
   title: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: 'bold',
-    color: '#f0f0f0', 
-    marginBottom: 16,
+    color: '#f0f0f0',
+    marginBottom: 20,
   },
   info: {
-    fontSize: 18,
+    fontSize: 20,
     color: '#f0f0f0',
-    marginBottom: 16,
+    marginBottom: 20,
   },
   button: {
     backgroundColor: '#007bff',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 6,
+    minWidth: '60%',
+    marginVertical: 10,
   },
-});
+};

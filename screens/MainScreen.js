@@ -37,10 +37,12 @@ export default function MainScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.calculatorContainer}>
-        <Text style={styles.title}>Room Cost Calculator</Text>
-
+        <Text style={styles.title}>Casey's Room Cost Calculator</Text>
+  
         <View style={styles.grid}>
-          <Text style={styles.label}>Size of the room: {roomSize} sqm</Text>
+          <Text style={styles.label}>
+            Size of the room: {roomSize} {isSquareMeter ? 'sqm' : 'sqft'}
+          </Text>
           <Slider
             style={{ width: '100%', height: 40 }}
             minimumValue={0}
@@ -49,13 +51,15 @@ export default function MainScreen() {
             onValueChange={(value) => setRoomSize(value)}
             value={roomSize}
           />
-
-          <Text style={styles.label}>Unit of measurement:</Text>
+  
+          <Text style={styles.label}>
+            Unit of measurement: {isSquareMeter ? 'Square Meters' : 'Square Feet'}
+          </Text>
           <Switch
             value={isSquareMeter}
             onValueChange={() => setIsSquareMeter(!isSquareMeter)}
           />
-
+  
           <Text style={styles.label}>Price per unit of flooring:</Text>
           <TextInput
             style={styles.input}
@@ -64,7 +68,7 @@ export default function MainScreen() {
             value={flooringPrice}
             keyboardType="numeric"
           />
-
+  
           <Text style={styles.label}>Price per unit of installation:</Text>
           <TextInput
             style={styles.input}
@@ -73,70 +77,69 @@ export default function MainScreen() {
             value={installationCost}
             keyboardType="numeric"
           />
-
+  
           <Button title="Calculate" onPress={calculateCost} />
           <Text style={styles.result}>Installation cost before tax: ${flooringCost}</Text>
           <Text style={styles.result}>Flooring cost before tax: ${installationCost}</Text>
           <Text style={styles.result}>Total cost (installation + flooring) before tax: ${totalCost}</Text>
           <Text style={styles.result}>Tax: ${tax}</Text>
-          <Button title="Go to About Page" onPress={navigateToAbout} />
+          <Button title="Casey's About Me Page" onPress={navigateToAbout} />
         </View>
       </View>
     </View>
-  );
-}
+  )
+}  
 
-
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 1,
-    backgroundColor: '#2a2a2a', // dark grey background
+    backgroundColor: '#2a2a2a',
     padding: 16,
-    alignItems: 'center',
     justifyContent: 'center',
   },
   calculatorContainer: {
-    width: '90%',
-    maxWidth: 400,
+    width: '100%',
+    maxWidth: 500,
     backgroundColor: '#1f1f1f',
     borderRadius: 10,
     borderWidth: 2,
     borderColor: '#f0f0f0',
     elevation: 5,
-    padding: 16,
+    padding: 20,
   },
   grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: 'column',
     justifyContent: 'space-between',
   },
   button: {
     backgroundColor: '#333',
-    padding: 10,
-    margin: 5,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    marginVertical: 5,
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    minWidth: '30%',
+    minWidth: '100%',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#f0f0f0',
-    marginBottom: 16,
+    marginBottom: 20,
+    textAlign: 'center',
   },
   label: {
     fontSize: 18,
     color: '#f0f0f0',
-    marginTop: 8,
-    marginBottom: 16,
+    marginTop: 10,
+    marginBottom: 10,
   },
   input: {
     borderWidth: 1,
     borderColor: '#f0f0f0',
     borderRadius: 4,
-    padding: 8,
-    marginBottom: 24,
+    padding: 10,
+    marginBottom: 16,
     color: '#f0f0f0',
     backgroundColor: '#333',
   },
@@ -145,5 +148,6 @@ const styles = StyleSheet.create({
     color: '#f0f0f0',
     marginTop: 8,
     marginBottom: 16,
+    textAlign: 'center',
   },
-});
+};
